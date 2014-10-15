@@ -1,0 +1,12 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%block name="pagetitle">${_("Este curso no esta disponible en tu regíon")}</%block>
+
+<section class="outside-app">
+<p>${_("Nuestro sistema indica que tratas de acceder a nuestros cursos desde " +
+       " la dirección IP que se encuentra asociada a una región regulaciones diferentes " +
+       "El Gobierno del Estado de Oaxaca necesita cumplir con ellas. " +
+       "Los sentimos pero no podemos darte acceso a este curso " +
+       "Por favor sientete libre de encontrar otro curso en nuestro repositorio ")}</p>
+</section>

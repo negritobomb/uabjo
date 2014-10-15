@@ -1,0 +1,98 @@
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+
+<%inherit file="/main.html" />
+
+<%block name="title"><title>Acerca de CECAP Oaxaca</title></%block>
+
+<%block name="js_extra">
+  <script type="text/javascript">
+    $(function() {
+      $('section.message').hide();
+      $('#about-menu a').removeClass('active');
+      window.scrollTo(0,0);
+
+      if ( document.location.href.indexOf('#faq') > -1 ) {
+        $('section#faq').show();
+        $('#about-menu a.faq').addClass('active');
+      } else if ( document.location.href.indexOf('#contact') > -1 ) {
+        $('section#contact').show();
+        $('#about-menu a.contact').addClass('active');
+/*
+ *      } else if ( document.location.href.indexOf('#careers') > -1 ) {
+ *      $('section#careers').show();
+ *      $('#about-menu a.careers').addClass('active');
+ */
+      } else {
+        $('section#about').show();
+        $('#about-menu a.about').addClass('active');
+      }
+
+      $('#about-menu a').click(function(event) {
+        event.preventDefault();
+        $('#about-menu a').removeClass('active');
+        $(this).addClass('active');
+        var clickId = "section" + $(this).attr('href');
+        $('section.message').hide();
+        $(clickId).show();
+      });
+    });
+  </script>
+</%block>
+
+<section class="container about" style="width: auto;">
+  <nav id="about-menu">
+    <a href="#about" class="about active">Acerca de</a>
+    <a href="#contact" class="contact">Contacto</a>
+  </nav>
+
+  <section class="vision">
+
+## About Section ##
+    <section class="message left" id="about">
+      <div class="photo">
+        <img src="${static.url('themes/oax/images/quad.jpg')}" alt="Stanford Quad with Hoover Tower" />
+          <!-- Image Copyright owned by Giulio Gratta -->
+      </div>
+      <article>
+        <h2>Acerca de <span class="edx">CECAP Oaxaca</span></h2>
+
+        <p>El centro de capacitacion de los funcionarios públicos de Oaxaca esta desarrollando nuevos cursos en linea para mejorar al personal.</p>
+        <p>La oficina de ingenieria esta desarrollando estos materiales sobre  <a href="http://code.edx.org">OpenEdX</a>.</p>
+      </article>
+      <hr class="fade-right-hr-divider">
+    </section>
+
+
+
+## Contact Section ##
+    <section class="message left" id="contact">
+      <div class="photo">
+        <img src="${static.url('themes/oax/images/dish.jpg')}" alt="Planta en hibernadero" />
+          <!-- Image Copyright owned by Stanford University -->
+      </div>
+      <article id="stanford-OpenEdX-contact">
+        <h2>Información de contacto</h2>
+        <p><strong>Para información general escríbanos a:</strong><br />
+        <a href="mailto:cecap_edx@oaxaca.gob.mx">cecap_edx@oaxaca.gob.mx</a></p>
+
+        <p><strong>Para preocupaciones acerca de los derechos de autor escríbanos a:</strong><br />
+        <a href="mailto:cecap_edx@oaxaca.gob.mx">cecap_edx@oaxaca.gob.mx</a></p>
+      </article>
+      <script>
+        $(function() {
+          var ua = navigator.userAgent;
+
+          $('#stanford-OpenEdX-contact a').each(function() {
+            var href = $(this).attr('href') + "?body=User Agent String: " + ua + " (Please do not delete, this text helps us help you. - Stanford OpenEdX Team)";
+            if (!$(this).hasClass('external')) {
+              $(this).attr('href', href);
+            }
+          });
+        });
+      </script>
+      <hr class="fade-right-hr-divider">
+    </section>
+  </section>
+
+</section>

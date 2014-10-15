@@ -1,0 +1,34 @@
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+
+<%inherit file="/main.html" />
+
+<%block name="title"><title>Ayuda de CECAP Oaxaca</title></%block>
+
+<section class="container about" style="width: auto;">
+  <nav id="about-menu">
+    <a href="#" class="help">Help</a>
+  </nav>
+
+  <section class="vision">
+    <section class="message left" id="help">
+      <div class="photo">
+        <img src="${static.url('themes/oax/images/circuit.jpg')}" alt="Circuit Traces" />
+          <!-- Image from Flickr: http://www.flickr.com/photos/creative_stock/5227842611/ -->
+      </div>
+      <article>
+        <h2>Problemas accediendo a un curso?</h2>
+        <p><strong>Si eres un estudiante con problemas de ("Registro") a los cursos de Oaxaca en Linea:</strong></p>
+        <p>
+           - <a href="/logout">Sal de tu</a> Cuenta.<br />
+           - Navega a la pagina "Acerca de" de tu curso.<br />
+           - Hac click en el gran boton de "REGISTRO", y muy deberias poder registrarte al curso.  Tal vez te pida que entres a la plataforma primero.
+        </p>
+        <h2>Para ayuda tecnica</h2>
+        <p><strong>Envianos un correo a:</strong><br />
+        <a href="mailto:cecap_edx@oaxaca.gob.mx">cecap_edx@oaxaca.gob.mx</a></p>
+      </article>
+    </section>
+  </section>
+
+</section>
